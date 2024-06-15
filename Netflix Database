@@ -58,24 +58,24 @@ VALUES
 
 QUERY SQL
 
-* How many movie titles are there in the database? (movies only, not tv shows)
+#How many movie titles are there in the database? (movies only, not tv shows)
 SELECT people.show_id, people.director, titles.title, titles.type
 FROM "netflix_people" people
 LEFT JOIN "netflix_titles_info" titles
 ON people.show_id = titles.show_id;
 
-* When was the most recent batch of tv shows and/or movies added to the database?SELECT count(*)
+#When was the most recent batch of tv shows and/or movies added to the database?SELECT count(*)
 FROM "netflix_titles_info"
 WHERE type='Movie';
 SELECT max(date(date_added))
 FROM "netflix_titles_info";
 
-*List all the movies and tv shows in alphabetical order.
+#List all the movies and tv shows in alphabetical order.
 SELECT title
 FROM "netflix_titles_info"
 ORDER BY title asc;
 
-* Who was the Director for the movie The Starling?
+#Who was the Director for the movie The Starling?
 SELECT director
 FROM "netflix_titles_info" titles
 LEFT JOIN "netflix_people" people
@@ -83,7 +83,7 @@ ON people.show_id = titles.show_id
 WHERE title='The Starling';
 
 
-* What is the oldest movie in the database and what year was it made?
+#What is the oldest movie in the database and what year was it made?
 SELECT title, release_year
 FROM "netflix_titles_info"
 WHERE type='Movie'
